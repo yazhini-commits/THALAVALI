@@ -29,7 +29,7 @@ const navigate = useNavigate();
   });
 
   onClose();
-  navigate("/home");
+  navigate(`${BASE}/home`);;
 };
 
 

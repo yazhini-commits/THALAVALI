@@ -19,7 +19,7 @@ export default function Intro() {
   const handleGetStarted = () => {
   const loggedIn = localStorage.getItem("isLoggedIn");
   if (loggedIn) {
-    navigate("/home");
+    navigate("/sign");
   } else {
     navigate("/sign");
   }

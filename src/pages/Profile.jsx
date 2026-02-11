@@ -213,7 +213,7 @@ useEffect(() => {
   const handleSave = () => {
     saveProfile(profile);
     setSaved(true);
-    setTimeout(() => navigate("/home"), 1200);
+    setTimeout(() => navigate(`${BASE}/home`), 1200);
   };
 
   return (

@@ -257,7 +257,7 @@ const handleDownloadAnalysis = () => {
     )}
 
     <button
-      onClick={() => navigate("/home")}
+      onClick={() => navigate(`${BASE}/home`)}
       className="px-5 py-2 rounded-xl text-sm font-medium
       bg-gradient-to-r from-purple-500 to-pink-500 text-white
       hover:scale-105 transition shadow-lg"

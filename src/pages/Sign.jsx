@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, EyeOff, CheckCircle } from "lucide-react";
+import { BASE } from "../utils/routerBase";
 
 export default function Sign() {
   
@@ -57,7 +58,7 @@ export default function Sign() {
         savedUser.password === form.password
       ) {
         localStorage.setItem("isLoggedIn", "true");
-        navigate("/home");
+        navigate(`${BASE}/home`);
       }
     }
   };
