@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------- GLOBAL ---------------- */
+body {
+  @apply bg-white dark:bg-darkBg text-gray-900 dark:text-white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Smooth theme switching (already good) */
+* {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+
+/* Fade + slight lift (used for options expand) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes loadingBar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+.animate-loading-bar {
+  animation: loadingBar 1.4s ease-in-out infinite;
+}
+
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* ---------------- HOVER POLISH ---------------- */
+
+/* Sidebar hover items */
+.sidebar-item {
+  @apply transition-all duration-200;
+}
+
+.sidebar-item:hover {
+  transform: translateX(4px);
+}
+
+/* Content cards hover (structure NOT affected) */
+.content-card {
+  @apply transition-all duration-300;
+}
+
+.content-card:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* Active card glow */
+.content-card-active {
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.25);
+}
+
+/* Sign out danger hover */
+.signout-btn:hover {
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.35);
+}
+/* Remove ugly native select arrow in some browsers */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239933ff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+}
+
+.sidebar-transition {
+  transition:
+    width 320ms cubic-bezier(0.4, 0, 0.2, 1),
+    padding 320ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.4); /* purple */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+@keyframes toastSlide {
+  from {
+    transform: translateY(-25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* ========== ADVANCED MODE GLOBAL EFFECT ========== */
+
+.advanced body{
+  transition: background 0.6s ease, color 0.4s ease;
+}
+
+/* gradient purple replacement */
+.advanced .bg-purple-600{
+  background: linear-gradient(135deg,#7c3aed,#6366f1,#9333ea) !important;
+}
+
+.advanced .text-purple-600{
+  color:#c084fc !important;
+}
+
+.advanced .border-purple-500{
+  border-color:#8b5cf6 !important;
+}
+
+/* glow feeling */
+.advanced .shadow-purple-500\/30{
+  box-shadow:0 0 25px rgba(139,92,246,.6) !important;
+}
+/* ADVANCED MODE TEXT EFFECT */
+.advanced-text{
+  background: linear-gradient(90deg,#c084fc,#818cf8,#a855f7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+/* ADVANCED MODE UI FEEL */
+.advanced .content-card{
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139,92,246,.25);
+  box-shadow: 0 10px 40px rgba(139,92,246,.25);
+}
+
+.advanced main{
+  transition: all .4s ease;
+}
+
+.advanced .prompt-box{
+  border:1px solid rgba(139,92,246,.3);
+  box-shadow:0 10px 60px rgba(139,92,246,.35);
+}
+/* ================= FIRE HEARTBEAT ================= */
+
+@keyframes heartbeat {
+  0%   { transform: scale(1); }
+  14%  { transform: scale(1.12); }
+  28%  { transform: scale(1); }
+  42%  { transform: scale(1.12); }
+  70%  { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+/* expanding ripple rings */
+@keyframes fireRipple {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(2.3);
+    opacity: 0.15;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+/* glow breathing */
+@keyframes fireGlow {
+  0%   { box-shadow: 0 0 10px rgba(255,120,0,.4); }
+  50%  { box-shadow: 0 0 28px rgba(255,80,0,.8), 0 0 60px rgba(255,0,60,.45); }
+  100% { box-shadow: 0 0 10px rgba(255,120,0,.4); }
+}
+/* ================= NORMAL MODE FIRE AMBIENT (EMBER) ================= */
+
+/* slow warm ripple */
+@keyframes emberRipple {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.35;
+  }
+  60% {
+    transform: scale(1.8);
+    opacity: 0.12;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* gentle breathing heat glow */
+@keyframes emberGlow {
+  0%,100% {
+    box-shadow: 0 0 0px rgba(255,140,0,0);
+  }
+  50% {
+    box-shadow:
+      0 0 14px rgba(255,140,0,0.45),
+      0 0 28px rgba(255,80,0,0.28);
+  }
+}
+
+/* icon warmth pulse */
+@keyframes emberPulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
